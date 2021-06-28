@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :geolocations
   resources :elevators
   resources :columns
   resources :batteries

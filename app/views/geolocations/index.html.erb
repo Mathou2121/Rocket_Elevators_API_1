@@ -1,0 +1,62 @@
+<style>
+#map {
+  height: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>
+<p id="notice"><%= notice %></p>
+
+<h1>Geolocations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <title>Simple Map</title>
+    <%# <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script> %>
+   <script>
+   
+   let map;
+
+      function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+   });
+    } 
+
+</script>
+  <div id="map"><!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvL3upjtbPC-i4dD7Y-ORbh-CgkXgl8QE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+   </div>
+
+  
+    <% @geolocations.each do |geolocation| %>
+      <tr>
+        <td><%= link_to 'Show', geolocation %></td>
+        <td><%= link_to 'Edit', edit_geolocation_path(geolocation) %></td>
+        <td><%= link_to 'Destroy', geolocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Geolocation', new_geolocation_path %>
