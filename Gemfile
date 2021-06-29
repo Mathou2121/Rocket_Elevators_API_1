@@ -90,7 +90,7 @@ gem 'rails_admin'
 
 gem 'faker'
 
-
+gem 'sendgrid-ruby'
 
 gem "chartkick"
 gem "groupdate"
