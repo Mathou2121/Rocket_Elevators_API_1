@@ -27,24 +27,83 @@ body {
     <%# <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script src="./index.js"></script> %>
-   <script>
+   <div id="map"></div>
    
+   <script>
    let map;
+    // document.write(Address.first.id);
+    // $.getJSON('/real_addresses.json', function(1) {
+    //   console.debug(1);
+    // }); 
 
-      function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-   });
-    } 
+    var options = { 
+      center: {
+                "lat": 38.867033,
+                "lng": -76.979235
+            },
+      zoom: 3,
+    }
 
-</script>
-  <div id="map"><!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), options);
+    
+   //Array of markers
+      // var markers = [
+      //   {
+      //     coords:{"lat": 38.867033, "lng": -76.979235},
+      //     content:'<ul><li>Location of the Building: 1745 T Street Southeast, Washington</li><li>Number of Floors: 4</li><li>Client Name: Bahringer-Huel</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Rene Romaguera</li></ul>'
+      //   },
+      //   {
+      //     coords:{"lat": 38.1343013,"lng": -85.6498512},
+      //     content:'<ul><li>Location of the Building: 6007 Applegate Lane, Louisville</li><li>Number of Floors: 12</li><li>Client Name: McDermott LLC</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Lashay Howell</li></ul>'
+      //   },
+      //   {
+      //     coords:{"lat": 39.213076,"lng": -121.077583},
+      //     content:'<ul><li>Location of the Building: 560 Penstock Drive, Grass Valley</li><li>Number of Floors: 9</li><li>Client Name: Rolfson-Crist</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Ehtel Armstrong</li></ul>'
+      //   }
+      // ];
+
+    var markers = [];
+    <% Building.all.each do |b|%>
+            var current_marker =    {
+           coords:{"lat": 38.867033, "lng": -76.979235},
+           content:'<ul><li>Location of the Building: 1745 T Street Southeast, Washington</li><li>Number of Floors: 4</li><li>Client Name: Bahringer-Huel</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Rene Romaguera</li></ul>'
+         }
+         markers.push(current_marker);
+    <% end %>
+      //Loops through markers
+      for(var i = 0;i < markers.length;i++){
+        addMarker(markers[i]);
+      }
+
+      function addMarker(props){
+          var marker = new google.maps.Marker({
+          position:props.coords,
+          map
+        })
+        //Check for custom icon
+        if(props.iconImage){
+          marker.setIcon(props.iconImage);
+        }
+        //Checks for content window
+        if(props.content){
+          var infoWindow =  new google.maps.InfoWindow({
+          content:props.content
+          })
+          marker.addListener('click', function(){
+          infoWindow.open(map, marker);
+          })
+        }
+      }
+    }
+    
+  </script>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+      <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvL3upjtbPC-i4dD7Y-ORbh-CgkXgl8QE&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-   </div>
+  
 
   
     <% @geolocations.each do |geolocation| %>
