@@ -1,6 +1,10 @@
-<script>
-  alert("here we go");
-</script>
+<%
+#Rake::Task['watson'].invoke
+%>
+
+<audio autoplay controls>
+  <source src="../TTS.wav" type="audio/wav">
+</audio>
 
 <% if @abstract_models %>
   <table class="table table-condensed table-striped">
