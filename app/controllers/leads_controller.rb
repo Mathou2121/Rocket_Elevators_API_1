@@ -40,22 +40,49 @@ class LeadsController < ApplicationController
 
   def sendEmail
 
-    from = SendGrid::Email.new(email: 'contact@rocketelevator.com')
-    to = SendGrid::Email.new(email: '@lead.email')
-    subject = 'Thanks you for contacting us!'
-    content = SendGrid::Content.new(type: 'text/plain', value: 'Greetings [@lead.full_name]
+
+    puts "*********** SENDING SENDGRID EMAIL ***************"
+
+    # from = SendGrid::Email.new(email: 'anthony_rosby@hotmail.com')
+    # to = SendGrid::Email.new(email: 'anthony_rosby@hotmail.com')
+    # subject = 'Thanks you for contacting us!'
+    # content = SendGrid::Content.new(type: 'text/plain', value: 'Greetings [@lead.full_name]
+    # We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project [@lead.project_name].
+    # A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
+    # We’ll Talk soon
+    # The Rocket Team')
+    # mail = SendGrid::Mail.new(from, subject, to, content)
+
+    # sg = SendGrid::API.new(api_key: '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')
+    # response = sg.client.mail._('send').post(request_body: mail.to_json)
+    # puts response.status_code
+    # puts response.body
+    # puts response.parsed_body
+    # puts response.headers
+
+    
+    mail = SendGrid::Mail.new
+    mail.from = Email.new(email: 'anthony_rosby@hotmail.com')
+    mail.subject = 'Thanks you for contacting us!'
+
+    personalization = Personalization.new
+    personalization.add_to(Email.new(email: 'anthony_rosby@hotmail.com', name: 'antho'))
+    personalization.subject = 'Thanks you for contacting us!'
+    mail.add_personalization(personalization)
+
+    mail.add_content(Content.new(type: 'text/plain', value: 'Greetings [@lead.full_name]
     We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project [@lead.project_name].
     A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
     We’ll Talk soon
-    The Rocket Team')
-    mail = SendGrid::Mail.new(from, subject, to, content)
+    The Rocket Team'))
 
-    sg = SendGrid::API.new(api_key: ENV['4f28587e99msh391b0dc918cacebp11f78ajsnfd671fad2478'])
+    sg = SendGrid::API.new(api_key: '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')
     response = sg.client.mail._('send').post(request_body: mail.to_json)
+
     puts response.status_code
     puts response.body
-    puts response.parsed_body
     puts response.headers
+    
   end
 
   # PATCH/PUT /leads/1 or /leads/1.json
