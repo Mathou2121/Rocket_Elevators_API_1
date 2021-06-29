@@ -53,7 +53,7 @@ class LeadsController < ApplicationController
     # The Rocket Team')
     # mail = SendGrid::Mail.new(from, subject, to, content)
 
-    # sg = SendGrid::API.new(api_key: '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')
+    # sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     # response = sg.client.mail._('send').post(request_body: mail.to_json)
     # puts response.status_code
     # puts response.body
@@ -76,9 +76,8 @@ class LeadsController < ApplicationController
     We’ll Talk soon
     The Rocket Team'))
 
-    sg = SendGrid::API.new(api_key: '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')
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     response = sg.client.mail._('send').post(request_body: mail.to_json)
-
     puts response.status_code
     puts response.body
     puts response.headers

@@ -95,3 +95,5 @@ gem 'sendgrid-ruby'
 gem "chartkick"
 gem "groupdate"
 
+
+gem "ibm_watson"
