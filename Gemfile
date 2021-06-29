@@ -95,3 +95,5 @@ gem 'faker'
 gem "chartkick"
 gem "groupdate"
 
+
+gem "ibm_watson"
