@@ -1,36 +1,16 @@
-<style>
-#map {
-  height: 100%;
-}
 
-/* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-</style>
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Google Maps Multiple Markers</title> 
+  
+</head> 
+<body>
+  <div id="map" style="width: 800px; height: 600px;"></div>
 
-<h1>Geolocations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-   <title>Simple Map</title>
-    <%# <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script src="./index.js"></script> %>
-   <div id="map"></div>
-   
-   <script>
-   let map;
+  <script type="text/javascript">
+    let map;
     // document.write(Address.first.id);
     // $.getJSON('/real_addresses.json', function(1) {
     //   console.debug(1);
@@ -38,8 +18,8 @@ body {
 
     var options = { 
       center: {
-                "lat": 38.867033,
-                "lng": -76.979235
+                "lat": 39.803261,
+                "lng": -105.090408
             },
       zoom: 3,
     }
@@ -52,11 +32,12 @@ body {
             var current_marker = {
            coords:{lat: <%= building.address.lat%>, lng: <%= building.address.lng%>},
            //Still gives 12 instead of one. Leaving it in because it doesn't brake anything.
-           <% column_count = 0 %>
-           <% building.batteries.columns.each do |column| %>
-              <% column_count = column_count + 1  %>
-            <% end %>
-           content:'<ul><li>Location of the Building: <%= building.address_of_the_building%>, <%= building.address.city%></li><li>Client Name: <%= building.customer.company_contact_full_name%></li><li>Number of Batteries: <%= building.batteries.count%></li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: <%= building.full_name_of_the_technical_contact_for_the_building%></li></ul>'
+          //  <% column_count = 0 %>
+          //  <%= Column.find_by(battery_id: building.batteries.ids).elevators.count%>
+          //  <% building.batteries.columns.each do |column| %>
+          //     <% column_count = column_count + 1  %>
+          //   <% end %>
+           content:'<ul><li>Location of the Building: <%= building.address_of_the_building%>, <%= building.address.city%></li><li>Client Name: <%= building.customer.company_contact_full_name%></li><li>Number of Batteries: <%= building.batteries.count%></li><li>Number of Columns: <%= Column.where(battery_id: building.batteries.ids).count%></li><li>Number of Elevators: <%= Column.find_by(battery_id: building.batteries.ids).elevators.count%></li><li>Technical Contact: <%= building.full_name_of_the_technical_contact_for_the_building%></li></ul>'
          }
          markers.push(current_marker);
     <% end %>
@@ -92,19 +73,5 @@ body {
       src="https://maps.googleapis.com/maps/api/js?key=<%= "#{ENV['GOOGLE_MAPS_API']}"%>&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-  
-
-  
-    <% @geolocations.each do |geolocation| %>
-      <tr>
-        <td><%= link_to 'Show', geolocation %></td>
-        <td><%= link_to 'Edit', edit_geolocation_path(geolocation) %></td>
-        <td><%= link_to 'Destroy', geolocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Geolocation', new_geolocation_path %>
+</body>
+</html>
