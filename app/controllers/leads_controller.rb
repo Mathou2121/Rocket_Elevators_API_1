@@ -58,11 +58,12 @@ class LeadsController < ApplicationController
     # A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
     # We’ll Talk soon
     # The Rocket Team"))
-    mail.add_content(Content.new(type: 'text/html', value: "<html><body>Greetings #{name}.
-    We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project #{project}.
-    A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
-    We’ll Talk soon
-    The Rocket Team <img src="https://drive.google.com/file/d/1axgcU1YqgMQPd3w-99vuBxvDrUoDxX-t/view?usp=sharing"></body></html>"))
+    mail.add_content(Content.new(type: 'text/html', value: "<html><body><p>Greetings #{name}.</p>
+    <p>We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project #{project}.</p>
+    <p>A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.</p>
+    <p></p>
+    <p>We’ll Talk soon</p>
+    <p>The Rocket Team</p> <img src=\"https://drive.google.com/file/d/1axgcU1YqgMQPd3w-99vuBxvDrUoDxX-t/view?usp=sharing\"></body></html>"))
 
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
