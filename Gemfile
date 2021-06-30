@@ -95,5 +95,14 @@ gem 'faker'
 gem "chartkick"
 gem "groupdate"
 
+gem 'slack-ruby-client'
+
+gem 'async-websocket', '~> 0.8.0'
+
+gem 'http'
+
+gem 'dropbox_api'
+
+gem "slack-notifier"
 
 gem "ibm_watson"

@@ -6,11 +6,13 @@
 # stripe_api_key: sk_test_2J0l093xOyW72XUYJHE4Dv2r
 # stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
 #
+#
 development:
    PG_HOST: '127.0.0.1'
    DBNAME: 'rocket_elevators_postgres'
    PG_USER: 'officeimac'
    PASSWORD: ''
+   SLACK_API_TOKEN: 'xoxb-461156293569-2246009152352-MbdF2jUu5fe3N7MzhA8ZEqcA'
 
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
