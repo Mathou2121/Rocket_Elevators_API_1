@@ -29,5 +29,7 @@
 # Ignore database configuration
 /config/database.yml
 
-# Ignore application configuration
 /config/application.yml
+sendgrid.env
+sendgrid.env
+
