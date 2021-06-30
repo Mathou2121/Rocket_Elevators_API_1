@@ -2,7 +2,7 @@ class LeadsController < ApplicationController
   require 'sendgrid-ruby'
   include SendGrid
   before_action :set_lead, only: %i[ show edit update destroy ]
-  after_action :sendEmail
+  after_action :sendEmail, only: :create
   # GET /leads or /leads.json
   def index
     @leads = Lead.all
@@ -53,12 +53,16 @@ class LeadsController < ApplicationController
     personalization.add_to(Email.new(email: @lead.email, name: @lead.full_name))
     personalization.subject = 'Thanks you for contacting us!'
     mail.add_personalization(personalization)
-
-    mail.add_content(Content.new(type: 'text/plain', value: "Greetings #{name}.
+    # mail.add_content(Content.new(type: 'text/plain', value: "Greetings #{name}.
+    # We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project #{project}.
+    # A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
+    # We’ll Talk soon
+    # The Rocket Team"))
+    mail.add_content(Content.new(type: 'text/html', value: "<html><body>Greetings #{name}.
     We thank you for contacting Rocket Elevators to discuss the opportunity to contribute to your project #{project}.
     A representative from our team will be in touch with you very soon. We look forward to demonstrating the value of our solutions and helping you choose the appropriate product given your requirements.
     We’ll Talk soon
-    The Rocket Team"))
+    The Rocket Team <img src="https://drive.google.com/file/d/1axgcU1YqgMQPd3w-99vuBxvDrUoDxX-t/view?usp=sharing"></body></html>"))
 
 
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
