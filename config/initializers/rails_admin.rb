@@ -29,6 +29,8 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  require Rails.root.join('lib', 'rails_admin', 'custom_actions.rb')
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -45,5 +47,13 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  
+#  config.model Building do
+#    list do
+#      field :id do
+#        partial "watson"
+#      end
+#    end
+#  end
+#  partial "watson"
+
 end

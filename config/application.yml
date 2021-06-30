@@ -14,7 +14,6 @@ development:
    PASSWORD: ''
    SLACK_API_TOKEN: 'xoxb-461156293569-2246009152352-MbdF2jUu5fe3N7MzhA8ZEqcA'
 
-
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
