@@ -170,7 +170,7 @@ GEM
       temple (>= 0.8.0)
       tilt
     hashie (4.1.0)
-    http (5.0.1)
+    http (4.4.0)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
@@ -180,10 +180,8 @@ GEM
     http-cookie (1.0.4)
       domain_name (~> 0.5)
     http-form_data (2.3.0)
-
     http-parser (1.2.3)
       ffi-compiler (>= 1.0, < 2.0)
-
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     ibm_cloud_sdk_core (1.1.3)
