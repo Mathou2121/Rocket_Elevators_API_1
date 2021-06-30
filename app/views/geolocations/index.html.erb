@@ -46,28 +46,17 @@ body {
 
     function initMap() {
       map = new google.maps.Map(document.getElementById("map"), options);
-    
-   //Array of markers
-      // var markers = [
-      //   {
-      //     coords:{"lat": 38.867033, "lng": -76.979235},
-      //     content:'<ul><li>Location of the Building: 1745 T Street Southeast, Washington</li><li>Number of Floors: 4</li><li>Client Name: Bahringer-Huel</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Rene Romaguera</li></ul>'
-      //   },
-      //   {
-      //     coords:{"lat": 38.1343013,"lng": -85.6498512},
-      //     content:'<ul><li>Location of the Building: 6007 Applegate Lane, Louisville</li><li>Number of Floors: 12</li><li>Client Name: McDermott LLC</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Lashay Howell</li></ul>'
-      //   },
-      //   {
-      //     coords:{"lat": 39.213076,"lng": -121.077583},
-      //     content:'<ul><li>Location of the Building: 560 Penstock Drive, Grass Valley</li><li>Number of Floors: 9</li><li>Client Name: Rolfson-Crist</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Ehtel Armstrong</li></ul>'
-      //   }
-      // ];
-
+    //Array loop of markers. Makes a marker for each building  
     var markers = [];
-    <% Building.all.each do |b|%>
-            var current_marker =    {
-           coords:{"lat": 38.867033, "lng": -76.979235},
-           content:'<ul><li>Location of the Building: 1745 T Street Southeast, Washington</li><li>Number of Floors: 4</li><li>Client Name: Bahringer-Huel</li><li>Number of Batteries: 1</li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: Rene Romaguera</li></ul>'
+    <% Building.all.each do |building|%>
+            var current_marker = {
+           coords:{lat: <%= building.address.lat%>, lng: <%= building.address.lng%>},
+           //Still gives 12 instead of one. Leaving it in because it doesn't brake anything.
+           <% column_count = 0 %>
+           <% building.batteries.columns.each do |column| %>
+              <% column_count = column_count + 1  %>
+            <% end %>
+           content:'<ul><li>Location of the Building: <%= building.address_of_the_building%>, <%= building.address.city%></li><li>Client Name: <%= building.customer.company_contact_full_name%></li><li>Number of Batteries: <%= building.batteries.count%></li><li>Number of Columns: 1</li><li>Number of Elevators: 2</li><li>Technical Contact: <%= building.full_name_of_the_technical_contact_for_the_building%></li></ul>'
          }
          markers.push(current_marker);
     <% end %>
