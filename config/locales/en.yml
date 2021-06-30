@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  
+admin:
+   actions:
+      Foo:
+         menu: 'Foo'

@@ -178,7 +178,9 @@ addresses = Address.create(
     country: address["state"], 
     notes: Faker::Lorem.paragraph,
     created_at: customer.created_at, 
-    updated_at: customer.updated_at, 
+    updated_at: customer.updated_at,
+    lat: address["coordinates"]["lat"],
+    lng: address["coordinates"]["lng"]
   )
 
 ###################################### Building Create ######################################   
