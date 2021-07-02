@@ -45,7 +45,7 @@ class LeadsController < ApplicationController
     client = ZendeskAPI::Client.new do |config|
       # Mandatory:
     
-      config.url = "https://rocketelevator4998.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
+      config.url = "https://mooshine.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
     
       # Basic / Token Authentication
       config.username = ENV["ZENDESK USERNAME"]
@@ -85,7 +85,7 @@ class LeadsController < ApplicationController
       # When getting the error 'hostname does not match the server certificate'
       # use the API at https://yoursubdomain.zendesk.com/api/v2
     end
-    ZendeskAPI::Ticket.create!(client, :subject => :project_name, :comment => { :value => :project_description }, :submitter_id => @lead.id, :priority => "urgent") 
+    ZendeskAPI::Ticket.create!(client, :subject => @lead.project_name, :comment => { :value => @lead.project_description }, :submitter_id => @lead.id, :priority => "urgent") 
   end
 
   def sendEmail
