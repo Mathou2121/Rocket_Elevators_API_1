@@ -40,7 +40,6 @@
     <orderEntry type="library" scope="PROVIDED" name="ffi-compiler (v1.0.1, ruby-3.0.1-p64) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gli (v2.20.1, ruby-3.0.1-p64) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v4.1.0, ruby-3.0.1-p64) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="http (v5.0.1, ruby-3.0.1-p64) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-cookie (v1.0.4, ruby-3.0.1-p64) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="http-form_data (v2.3.0, ruby-3.0.1-p64) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.5.1, ruby-3.0.1-p64) [gem]" level="application" />
