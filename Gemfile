@@ -10,6 +10,7 @@ ruby '2.6.6'
 
 gem 'toastr-rails'
 gem 'devise'
+gem 'twilio-ruby'
 
 gem 'cancancan'
 
