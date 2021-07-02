@@ -107,3 +107,5 @@ gem 'dropbox_api'
 gem "slack-notifier"
 
 gem "ibm_watson"
+
+gem "zendesk_api"
