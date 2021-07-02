@@ -1,6 +1,7 @@
 require 'slack-notifier'
 
 class Elevator < ApplicationRecord
+    
     include ActiveModel::Dirty
     belongs_to :column
     before_update :slack_notify
