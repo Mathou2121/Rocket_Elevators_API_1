@@ -9,7 +9,7 @@ class Elevator < ApplicationRecord
     
     def slack_notify
         if self.status_was != self.status
-            notifier = Slack::Notifier.new "https://hooks.slack.com/services/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"
+            notifier = Slack::Notifier.new ENV["SLACK_TOKEN"]
             notifier.ping "Elevator #{self.id} with Serial Number #{self.serial_number} changed status from #{self.status_was} to #{self.status}"
         end
     end
