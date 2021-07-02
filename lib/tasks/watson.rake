@@ -9,7 +9,7 @@ task :watson do
 
   authenticator = Authenticators::IamAuthenticator.new(
       #keep the key like this for now until we know watson is working
-      apikey: "R7FVOui8nSAdVMoHT-xOdWIVd_V-dFZYudK30uN4n0eg"
+      apikey: ENV["WATSON APIKEY"] #check application.yml
   )
 
   text_to_speech = TextToSpeechV1.new(
@@ -46,13 +46,13 @@ task :watson do
 
   puts theScript
 
-  # File.open("../../public/TTS.wav", "wb") do |audio_file|
-  #   response = text_to_speech.synthesize(
-  #     text: "Welcome, welcome to Rocket Elevators Dashboard.",
-  #     accept: "audio/wav",
-  #     voice: "en-US_AllisonVoice"
-  #   ).result
-  #   audio_file << response
-  # end
+   File.open("public/TTS.wav", "wb") do |audio_file|
+     response = text_to_speech.synthesize(
+       text: theScript,
+       accept: "audio/wav",
+       voice: "en-US_AllisonVoice"
+     ).result
+     audio_file << response
+   end
 
 end

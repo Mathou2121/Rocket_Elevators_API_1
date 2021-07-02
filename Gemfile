@@ -97,3 +97,4 @@ gem "groupdate"
 
 
 gem "ibm_watson"
+gem "zendesk_api"

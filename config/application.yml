@@ -16,3 +16,5 @@ development:
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+WATSON APIKEY: 'R7FVOui8nSAdVMoHT-xOdWIVd_V-dFZYudK30uN4n0eg'
