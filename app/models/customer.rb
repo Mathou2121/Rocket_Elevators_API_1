@@ -11,11 +11,7 @@ class Customer < ApplicationRecord
         Lead.all.each do |lead|
             if lead.email == self.company_contact_email || lead.email == self.technical_manager_email_for_service
                 binary_file = lead.file.download
-<<<<<<< HEAD
-                client = DropboxApi::Client.new(ENV['DROPBOX_TOKEN'])
-=======
                 client = DropboxApi::Client.new(ENV["DROPBOX_TOKEN"])
->>>>>>> main
                 client.create_folder("/#{lead.full_name}")
                 client.upload "/#{lead.full_name}/attached_file", binary_file
                 lead.file.destroy

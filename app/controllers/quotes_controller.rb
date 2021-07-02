@@ -1,9 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
-<<<<<<< HEAD
-=======
   after_action :makeTicket, only: :create
->>>>>>> main
 
   # GET /quotes or /quotes.json
   def index
@@ -60,15 +57,13 @@ class QuotesController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
   def makeTicket
     puts "*********** CREATING ZENDESK TICKET ***************"
     require 'zendesk_api'
     client = ZendeskAPI::Client.new do |config|
       # Mandatory:
     
-      config.url = "https://rocketelevator4998.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
+      config.url = "https://mooshine.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
     
       # Basic / Token Authentication
       config.username = ENV["ZENDESK USERNAME"]
@@ -108,9 +103,8 @@ class QuotesController < ApplicationController
       # When getting the error 'hostname does not match the server certificate'
       # use the API at https://yoursubdomain.zendesk.com/api/v2
     end
-    ZendeskAPI::Ticket.create!(client, :subject => :company_name, :comment => { :value => :final_price }, :submitter_id => @quote.id, :priority => "urgent") 
+    ZendeskAPI::Ticket.create!(client, :subject => @quote.company_name, :comment => { :value => @quote.final_price }, :submitter_id => @quote.id, :priority => "urgent") 
   end
->>>>>>> main
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quote

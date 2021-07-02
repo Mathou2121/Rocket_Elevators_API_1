@@ -1,7 +1,4 @@
 # README
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 Description
 
@@ -44,8 +41,7 @@ By clicking on “Login”, users will be redirected to a page and be asked to p
 Forms are accessible to all users (with or without accounts). Once a “Contact Us” or quote form is filled and submitted, data is generated in the back-end.
 
 To access the database, use Dbeaver or MySQLWorkbench, which shows a history of data stored in the server. The fictitious and real data covers the last 3 years of activity from companies. Graphical representations and charts will also be available in the administration part of the website. More details on how the data is stored in tables will be provided in the presentation video.
-=======
->>>>>>> main
+
 # Rocket_Elevators_API_1
 > Week 7 project for Rocket Elevators. Subsidiary of Codeboxx Technologies
 ## Table of Contents
@@ -99,7 +95,3 @@ On the dashboard of the admin page there should be an audio file which will futu
 
 ### Zendesk
 ZenDesk hates Rocket Elevators.
-<<<<<<< HEAD
-=======
->>>>>>> main
->>>>>>> main
