@@ -34,7 +34,7 @@ amountLeads     = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM le
 amountBatteries = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM batteries;")
 amountCities    = ActiveRecord::Base.connection.execute("SELECT count( DISTINCT(city) ) FROM addresses;")
 
-theScript    = "Welcome, welcome to Rocket Elevators Dashboard. "
+theScript    = "Welcome to Rocket Elevators Dashboard. "
 theScript   += "There are currently #{amountElevators.first} elevators deployed in the #{amountBuildings.first} buildings of your #{amountCustomers.first} customers. "
 theScript   += "Currently, #{amountElevators.first} elevators are not in Running Status and are being serviced. "
 theScript   += "You currently have #{amountQuotes.first} quotes awaiting processing. "
