@@ -37,7 +37,7 @@ task :watson do
   amountBatteries = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM batteries;")
   amountCities    = ActiveRecord::Base.connection.execute("SELECT count( DISTINCT(city) ) FROM addresses;")
 
-  theScript    = "Welcome, welcome to Rocket Elevators Dashboard. "
+  theScript    = "Welcome to Rocket Elevators Dashboard. "
   theScript   += "There are currently #{amountElevators.first[0]} elevators deployed in the #{amountBuildings.first[0]} buildings of your #{amountCustomers.first[0]} customers. "
   theScript   += "Currently, #{amountElevators.first[0]} elevators are not in Running Status and are being serviced. "
   theScript   += "You currently have #{amountQuotes.first[0]} quotes awaiting processing. "
