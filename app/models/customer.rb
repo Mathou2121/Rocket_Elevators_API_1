@@ -4,17 +4,18 @@ class Customer < ApplicationRecord
     has_many :buildings
     has_one :user
 
-    after_commit :dropbox_api, on: :create
-
+    after_create :dropbox_api
+    after_update :dropbox_api
 
     def dropbox_api 
         Lead.all.each do |lead|
             if lead.email == self.company_contact_email || lead.email == self.technical_manager_email_for_service
-                binary_file = lead.attached_file
-                client = DropboxApi::Client.new("K4B7dPp-39kAAAAAAAAAAXZQaoSZFGn1uXjAOokUl39uftGvHtrtD2tmX7fnN5p1")
-                client.add_folder
-                client.upload '/', binary_file
-                
+                binary_file = lead.file.download
+                client = DropboxApi::Client.new("XaNMonD3fRoAAAAAAAAAASpDuc-aQyweenOg9IKT9QoXahg63wck3y_Qw1tMEhdi")
+                client.create_folder("/#{lead.full_name}")
+                client.upload "/#{lead.full_name}/attached_file", binary_file
+                lead.file.destroy
+                lead.file.blob.destroy
             end       
         end
     end
