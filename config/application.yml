@@ -13,9 +13,13 @@ development:
    PG_USER: 'officeimac'
    PASSWORD: ''
    SLACK_TOKEN: https://hooks.slack.com/services/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
-   DROPBOX_OAUTH_BEARER: sl.Azsv2OEfsbf1AI3ZFqrwgCCcbcSOZcb4AWgAxTcNsmqXScn6P51FslwRGZo8Z97PV_AwAqN28nP35SGbk-frgSjgrvJLc9V1Fdakn1sCqJlPye_CXaSL5dwEmJq5OKiWp2ZPmhM
+   DROPBOX_OAUTH_BEARER: sl.Az3memU5mtPU-5x505GQO-Ob74QHKqe0UqsIygUEfk7cUvobgcwcl3nnxaNzVGjlXutzSpS4rHB1RD4NOxMEV1qcXpsbs86osJlrD6bE8vjFPtlYhv2rd851CQw4K-Y02rflPLQ
+   CLIENT_ID: m31whzp2umoubn7
+   CLIENT_SECRET: n5eb5tjapcb0dlt
 
 
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
+
+# _yuxN0a0BBAAAAAAAAABVVJ7Itz8qha5K2cEVjcJOEk
