@@ -10,6 +10,7 @@ ruby '2.6.6'
 
 gem 'toastr-rails'
 gem 'devise'
+gem 'twilio-ruby'
 
 gem 'cancancan'
 
@@ -90,11 +91,21 @@ gem 'rails_admin'
 
 gem 'faker'
 
-
+gem 'sendgrid-ruby'
 
 gem "chartkick"
 gem "groupdate"
 
+gem 'slack-ruby-client'
+
+gem 'async-websocket', '~> 0.8.0'
+
+gem 'http'
+
+gem 'dropbox_api'
+
+gem "slack-notifier"
 
 gem "ibm_watson"
+
 gem "zendesk_api"

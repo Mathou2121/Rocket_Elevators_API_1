@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  admin: 
+    actions: 
+      root:
+          title: "Rails Admin"
+          menu: "Geolocations"
+          breadcrumb: "Geolocations"
+
