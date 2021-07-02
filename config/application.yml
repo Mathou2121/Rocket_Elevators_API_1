@@ -12,6 +12,11 @@ development:
    DBNAME: 'rocket_elevators_postgres'
    PG_USER: 'officeimac'
    PASSWORD: ''
+<<<<<<< HEAD
+   SLACK_API_TOKEN: 'xoxb-461156293569-2246009152352-MbdF2jUu5fe3N7MzhA8ZEqcA'
+   TWILIO_ACCOUNT_SID: ACbab73174d6b166e5471abe651897f807
+   TWILIO_AUTH_TOKEN: d4ff37b02c434be43552e9db062d4841
+=======
    SLACK_TOKEN: https://hooks.slack.com/services/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
    DROPBOX_TOKEN: XaNMonD3fRoAAAAAAAAAASpDuc-aQyweenOg9IKT9QoXahg63wck3y_Qw1tMEhdi
    CLIENT_ID: m31whzp2umoubn7
@@ -22,6 +27,7 @@ development:
    TWILIO_PHONE_1: +12048906332
    TWILIO_PHONE_2: +14182345968
    TWILIO_PHONE_3: +12048906332
+>>>>>>> main
    GOOGLE_MAPS_API: AIzaSyBvL3upjtbPC-i4dD7Y-ORbh-CgkXgl8QE
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
@@ -31,4 +37,8 @@ WATSON APIKEY: 'R7FVOui8nSAdVMoHT-xOdWIVd_V-dFZYudK30uN4n0eg'
 ZENDESK APIKEY: 'mKcwQFHzt1dO9W5XEMvNOhpRZbtGsMtCPofbqskw'
 ZENDESK USERNAME: 'anthony_rosby@hotmail.com'
 ZENDESK PASSWORD: 'Raptor700$'
+<<<<<<< HEAD
 ZENDESK OAUTH: '92253094b78eb917cfd7a9930b5c27c9fa8d81e3ed9329a78f75744028c12112'
+=======
+ZENDESK OAUTH: '92253094b78eb917cfd7a9930b5c27c9fa8d81e3ed9329a78f75744028c12112'
+>>>>>>> main
