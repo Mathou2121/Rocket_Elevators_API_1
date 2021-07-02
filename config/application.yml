@@ -16,8 +16,10 @@ development:
    DROPBOX_OAUTH_BEARER: sl.Az3memU5mtPU-5x505GQO-Ob74QHKqe0UqsIygUEfk7cUvobgcwcl3nnxaNzVGjlXutzSpS4rHB1RD4NOxMEV1qcXpsbs86osJlrD6bE8vjFPtlYhv2rd851CQw4K-Y02rflPLQ
    CLIENT_ID: m31whzp2umoubn7
    CLIENT_SECRET: n5eb5tjapcb0dlt
-
-
+   SLACK_API_TOKEN: 'xoxb-461156293569-2246009152352-MbdF2jUu5fe3N7MzhA8ZEqcA'
+   TWILIO_ACCOUNT_SID: ACbab73174d6b166e5471abe651897f807
+   TWILIO_AUTH_TOKEN: d4ff37b02c434be43552e9db062d4841
+   GOOGLE_MAPS_API: AIzaSyBvL3upjtbPC-i4dD7Y-ORbh-CgkXgl8QE
 # production:
 #   pg_host: 'codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com'
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
