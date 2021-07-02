@@ -21,3 +21,7 @@ development:
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 WATSON APIKEY: 'R7FVOui8nSAdVMoHT-xOdWIVd_V-dFZYudK30uN4n0eg'
+ZENDESK APIKEY: 'mKcwQFHzt1dO9W5XEMvNOhpRZbtGsMtCPofbqskw'
+ZENDESK USERNAME: 'anthony_rosby@hotmail.com'
+ZENDESK PASSWORD: 'Raptor700$'
+ZENDESK OAUTH: '92253094b78eb917cfd7a9930b5c27c9fa8d81e3ed9329a78f75744028c12112'

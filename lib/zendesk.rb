@@ -3,17 +3,17 @@ require 'zendesk_api'
 client = ZendeskAPI::Client.new do |config|
   # Mandatory:
 
-  config.url = "https://backofficecorpinc.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
+  config.url = "https://rocketelevator4998.zendesk.com/api/v2" # e.g. https://yoursubdomain.zendesk.com/api/v2
 
   # Basic / Token Authentication
-  config.username = "transcript.jpg@gmail.com"
+  config.username = ENV["ZENDESK USERNAME"]
 
   # Choose one of the following depending on your authentication choice
-  config.token = "YbjL4QwsElEcuCpvlQ67ulwPUmfTrYw5ZO9s0y9v"
-  config.password = "Createcreatecreate256"
+  config.token = ENV["ZENDESK APIKEY"]
+  config.password = ENV["ZENDESK PASSWORD"]
 
   # OAuth Authentication
-  config.access_token = "d60f22594cb4b6dda48a211515d68dd37c9b41f6842cf3342414f31d0d264dcc"
+  config.access_token = ENV["ZENDESK OATH"]
 
   # Optional:
 
